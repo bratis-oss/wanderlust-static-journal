@@ -6,11 +6,16 @@ import { posts } from "@/data/posts";
 
 const Getaways = () => {
   // Filtrar solo los posts que son escapadas (cortas)
-  const getawayPosts = posts.filter(post => 
-    post.categories?.includes("escapadas") || 
-    post.tags?.includes("escapadas") || 
-    post.tags?.includes("fin de semana")
-  );
+  const getawayPosts = posts.filter(post => {
+    // Check if post has categories or tags property before trying to access them
+    const postCategories = post.categories || [];
+    const postTags = post.tags || [];
+    
+    return (
+      typeof postCategories === 'object' && postCategories.includes("escapadas") || 
+      typeof postTags === 'object' && (postTags.includes("escapadas") || postTags.includes("fin de semana"))
+    );
+  });
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -6,12 +6,20 @@ import { posts } from "@/data/posts";
 
 const NomadLife = () => {
   // Filtrar solo los posts que son sobre vida nómada
-  const nomadPosts = posts.filter(post => 
-    post.categories?.includes("nomada") || 
-    post.tags?.includes("nomada digital") || 
-    post.tags?.includes("work") ||
-    post.tags?.includes("remoto")
-  );
+  const nomadPosts = posts.filter(post => {
+    // Check if post has categories or tags property before trying to access them
+    const postCategories = post.categories || [];
+    const postTags = post.tags || [];
+    
+    return (
+      typeof postCategories === 'object' && postCategories.includes("nomada") || 
+      typeof postTags === 'object' && (
+        postTags.includes("nomada digital") || 
+        postTags.includes("work") ||
+        postTags.includes("remoto")
+      )
+    );
+  });
 
   return (
     <div className="flex flex-col min-h-screen">

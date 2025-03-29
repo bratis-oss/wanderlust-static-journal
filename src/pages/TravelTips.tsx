@@ -6,11 +6,16 @@ import { posts } from "@/data/posts";
 
 const TravelTips = () => {
   // Filtrar solo los posts que son consejos de viaje
-  const tipPosts = posts.filter(post => 
-    post.categories?.includes("consejos") || 
-    post.tags?.includes("tips") || 
-    post.tags?.includes("consejos")
-  );
+  const tipPosts = posts.filter(post => {
+    // Check if post has categories or tags property before trying to access them
+    const postCategories = post.categories || [];
+    const postTags = post.tags || [];
+    
+    return (
+      typeof postCategories === 'object' && postCategories.includes("consejos") || 
+      typeof postTags === 'object' && (postTags.includes("tips") || postTags.includes("consejos"))
+    );
+  });
 
   return (
     <div className="flex flex-col min-h-screen">
