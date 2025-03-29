@@ -20,7 +20,7 @@ const FeaturedPost = ({ post }: FeaturedPostProps) => {
       
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 flex flex-col justify-end">
         <div className="mb-2">
-          <span className="text-xs font-medium text-white bg-primary px-3 py-1 rounded-full">
+          <span className="text-xs font-medium bg-primary text-primary-foreground px-3 py-1 rounded-full">
             {post.destination}
           </span>
         </div>
@@ -42,7 +42,7 @@ const FeaturedPost = ({ post }: FeaturedPostProps) => {
             to={`/blog/${post.slug}`} 
             className="text-white inline-flex items-center hover:text-primary transition-colors"
           >
-            Read More <ArrowRight className="ml-1 h-4 w-4" />
+            Leer Más <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
       </div>

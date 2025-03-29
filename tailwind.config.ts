@@ -30,15 +30,15 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#0ea5e9',
+					DEFAULT: '#f97316', // Orange
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: '#f97316',
+					DEFAULT: '#fff1e6', // Soft Peach
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				accent: {
-					DEFAULT: '#8B5CF6',
+					DEFAULT: '#ffedd5', // Light Orange
 					foreground: 'hsl(var(--accent-foreground))'
 				},
 				destructive: {
