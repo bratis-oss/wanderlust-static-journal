@@ -12,12 +12,10 @@ const NomadLife = () => {
     const postTags = post.tags || [];
     
     return (
-      typeof postCategories === 'object' && postCategories.includes("nomada") || 
-      typeof postTags === 'object' && (
-        postTags.includes("nomada digital") || 
-        postTags.includes("work") ||
-        postTags.includes("remoto")
-      )
+      postCategories.includes("nomada") || 
+      postTags.includes("nomada digital") || 
+      postTags.includes("work") ||
+      postTags.includes("remoto")
     );
   });
 

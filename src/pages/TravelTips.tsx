@@ -12,8 +12,9 @@ const TravelTips = () => {
     const postTags = post.tags || [];
     
     return (
-      typeof postCategories === 'object' && postCategories.includes("consejos") || 
-      typeof postTags === 'object' && (postTags.includes("tips") || postTags.includes("consejos"))
+      postCategories.includes("consejos") || 
+      postTags.includes("tips") || 
+      postTags.includes("consejos")
     );
   });
 

@@ -26,10 +26,10 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero 
-          title="Explore the World with Wanderlust"
-          subtitle="Discover breathtaking destinations and unforgettable experiences"
+          title="Explora el mundo a tu ritmo"
+          subtitle="Desde escapadas de fin de semana hasta una vida nómada. ¡Bienvenido a NomadGo!"
           imageSrc="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-          buttonText="Explore Destinations"
+          buttonText="Explorar Destinos"
           buttonLink="/destinations"
         />
         

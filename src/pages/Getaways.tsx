@@ -12,8 +12,9 @@ const Getaways = () => {
     const postTags = post.tags || [];
     
     return (
-      typeof postCategories === 'object' && postCategories.includes("escapadas") || 
-      typeof postTags === 'object' && (postTags.includes("escapadas") || postTags.includes("fin de semana"))
+      postCategories.includes("escapadas") || 
+      postTags.includes("escapadas") || 
+      postTags.includes("fin de semana")
     );
   });
 
