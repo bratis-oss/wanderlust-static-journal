@@ -23,7 +23,7 @@ const LanguageSelector = () => {
         <SelectTrigger className="w-[130px] h-8 border-none bg-transparent focus:ring-0">
           <div className="flex items-center">
             <Globe className="mr-2 h-4 w-4" />
-            <SelectValue placeholder="Language" />
+            <SelectValue placeholder="Idioma" />
           </div>
         </SelectTrigger>
         <SelectContent>

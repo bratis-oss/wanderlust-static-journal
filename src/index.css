@@ -55,7 +55,7 @@
     --secondary-foreground: 20 10% 90%;
 
     --muted: 25 20% 20%;
-    --muted-foreground: 20 10% 65%;
+    --muted-foreground: 20 10% 70%; /* Increased brightness for better readability */
 
     --accent: 25 40% 25%;
     --accent-foreground: 20 10% 90%;
@@ -94,39 +94,23 @@
     @apply w-full;
   }
 
-  .blog-content p {
-    @apply my-4 leading-relaxed;
+  /* Improved blog content styling with typography */
+  .blog-content {
+    @apply prose prose-lg dark:prose-invert max-w-none
+           prose-headings:font-serif prose-headings:font-bold
+           prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
+           prose-p:my-4 prose-p:leading-relaxed
+           prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+           prose-img:rounded-lg prose-img:my-6
+           prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic;
   }
 
-  .blog-content h2 {
-    @apply text-2xl font-bold mt-8 mb-4;
-  }
-
-  .blog-content h3 {
-    @apply text-xl font-bold mt-6 mb-3;
-  }
-
-  .blog-content ul, .blog-content ol {
-    @apply my-4 pl-5;
-  }
-
-  .blog-content ul {
-    @apply list-disc;
-  }
-
-  .blog-content ol {
-    @apply list-decimal;
-  }
-
-  .blog-content img {
-    @apply my-6 rounded-lg max-w-full h-auto;
-  }
-
-  .blog-content a {
-    @apply text-primary hover:underline;
-  }
-
-  .blog-content blockquote {
-    @apply pl-4 border-l-4 border-primary italic my-6;
+  /* Dark mode specific adjustments for blog content */
+  .dark .blog-content {
+    @apply prose-p:text-gray-200 /* Ensure paragraph text is readable in dark mode */
+           prose-headings:text-gray-100 /* Ensure headings are visible in dark mode */
+           prose-a:text-primary /* Keep links visually distinct */
+           prose-strong:text-gray-100 /* Make bold text stand out */
+           prose-em:text-gray-200; /* Make italic text readable */
   }
 }

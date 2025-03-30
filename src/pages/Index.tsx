@@ -8,11 +8,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const featuredPosts = getFeaturedPosts();
   const latestPosts = getLatestPosts(3);
   const destinations = getUniqueDestinations();
+  const { translate } = useLanguage();
 
   // Scroll to top on page load
   useEffect(() => {
@@ -26,35 +28,35 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero 
-          title="Explora el mundo a tu ritmo"
-          subtitle="Desde escapadas de fin de semana hasta una vida nómada. ¡Bienvenido a NomadGo!"
+          title={translate("hero-title")}
+          subtitle={translate("hero-subtitle")}
           imageSrc="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-          buttonText="Explorar Destinos"
+          buttonText={translate("explore-destinations")}
           buttonLink="/destinations"
         />
         
         {/* Featured Posts Section */}
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-10 text-center">
-            Featured Stories
+          <h2 className="text-3xl font-serif font-bold text-foreground mb-10 text-center">
+            {translate("featured-stories")}
           </h2>
           
           <div className="grid grid-cols-1 gap-8">
-            {featuredPosts.map((post, index) => (
+            {featuredPosts.map((post) => (
               <FeaturedPost key={post.id} post={post} />
             ))}
           </div>
         </section>
         
         {/* Destinations Section */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-secondary py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-10 text-center">
-              Popular Destinations
+            <h2 className="text-3xl font-serif font-bold text-foreground mb-10 text-center">
+              {translate("popular-destinations")}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {destinations.map((destination, index) => (
+              {destinations.map((destination) => (
                 <Link 
                   key={destination} 
                   to={`/destinations?country=${destination}`}
@@ -79,8 +81,8 @@ const Index = () => {
         
         {/* Latest Posts Section */}
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-10 text-center">
-            Latest Adventures
+          <h2 className="text-3xl font-serif font-bold text-foreground mb-10 text-center">
+            {translate("latest-adventures")}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,7 +96,7 @@ const Index = () => {
               to="/destinations" 
               className="inline-block bg-primary text-white hover:bg-primary/90 font-medium px-8 py-3 rounded-full transition-all transform hover:scale-105"
             >
-              View All Posts
+              {translate("view-all")}
             </Link>
           </div>
         </section>
@@ -103,23 +105,23 @@ const Index = () => {
         <section className="bg-primary py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-serif font-bold text-white mb-4">
-              Join Our Travel Community
+              {translate("join-community")}
             </h2>
             <p className="text-white/90 max-w-2xl mx-auto mb-8">
-              Subscribe to our newsletter for travel tips, exclusive content, and updates on new destinations.
+              {translate("newsletter-desc")}
             </p>
             
             <form className="max-w-md mx-auto flex">
               <input 
                 type="email" 
-                placeholder="Your email address" 
+                placeholder={translate("email-placeholder")}
                 className="flex-grow px-4 py-3 rounded-l-lg focus:outline-none"
               />
               <button 
                 type="submit" 
                 className="bg-gray-900 text-white px-6 py-3 rounded-r-lg hover:bg-gray-800 transition-colors"
               >
-                Subscribe
+                {translate("subscribe")}
               </button>
             </form>
           </div>

@@ -31,15 +31,15 @@ export function parseFrontmatter(markdown: string): {
       // Handle array values like categories and tags
       if (value.startsWith('[') && value.endsWith(']')) {
         value = value.slice(1, -1);
-        frontmatter[key as keyof Post] = value.split(',').map(item => item.trim()) as any;
+        frontmatter[key as keyof Post] = value.split(',').map(item => item.trim()) as unknown as Post[keyof Post];
       } 
       // Handle boolean values
       else if (value === 'true' || value === 'false') {
-        frontmatter[key as keyof Post] = (value === 'true') as any;
+        frontmatter[key as keyof Post] = (value === 'true') as unknown as Post[keyof Post];
       } 
       // Handle other types
       else {
-        frontmatter[key as keyof Post] = value as any;
+        frontmatter[key as keyof Post] = value as unknown as Post[keyof Post];
       }
     }
   }
