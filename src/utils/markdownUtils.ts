@@ -31,15 +31,18 @@ export function parseFrontmatter(markdown: string): {
       // Handle array values like categories and tags
       if (value.startsWith('[') && value.endsWith(']')) {
         value = value.slice(1, -1);
-        frontmatter[key as keyof Post] = value.split(',').map(item => item.trim()) as unknown as Post[keyof Post];
+        // Type assertion to tell TypeScript this is a valid assignment
+        frontmatter[key as keyof Post] = value.split(',').map(item => item.trim()) as any;
       } 
       // Handle boolean values
       else if (value === 'true' || value === 'false') {
-        frontmatter[key as keyof Post] = (value === 'true') as unknown as Post[keyof Post];
+        // Type assertion to tell TypeScript this is a valid assignment
+        frontmatter[key as keyof Post] = (value === 'true') as any;
       } 
       // Handle other types
       else {
-        frontmatter[key as keyof Post] = value as unknown as Post[keyof Post];
+        // Type assertion to tell TypeScript this is a valid assignment
+        frontmatter[key as keyof Post] = value as any;
       }
     }
   }
@@ -114,7 +117,8 @@ export async function loadMarkdownPost(filePath: string): Promise<Post> {
       featured: frontmatter.featured || false,
       readingTime: frontmatter.readingTime || '5 min read',
       categories: frontmatter.categories as string[] || [],
-      tags: frontmatter.tags as string[] || []
+      tags: frontmatter.tags as string[] || [],
+      subcategory: frontmatter.subcategory as string || 'General'
     };
   } catch (error) {
     console.error('Error loading markdown post:', error);

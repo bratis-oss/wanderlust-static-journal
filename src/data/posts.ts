@@ -13,11 +13,12 @@ export interface Post {
   readingTime: string;
   categories?: string[];
   tags?: string[];
+  subcategory?: string;
 }
 
-// Sample posts for each category
+// Re-organize posts by categories and subcategories
 export const posts: Post[] = [
-  // Destinos
+  // Destinos - Popular Destinations
   {
     id: "1",
     title: "Exploring the Hidden Beaches of Bali",
@@ -52,7 +53,8 @@ export const posts: Post[] = [
     destination: "Bali",
     featured: true,
     readingTime: "5 min read",
-    categories: ["destinos", "asia"],
+    categories: ["destinos"],
+    subcategory: "Destinos populares",
     tags: ["playas", "indonesia", "oculto"]
   },
   {
@@ -92,8 +94,48 @@ export const posts: Post[] = [
     destination: "Japan",
     featured: true,
     readingTime: "6 min read",
-    categories: ["destinos", "asia"],
+    categories: ["destinos"],
+    subcategory: "Por continentes",
     tags: ["templos", "cultura", "japon"]
+  },
+  
+  // Destinos - España
+  {
+    id: "9",
+    title: "Rincones secretos de Granada: Más allá de la Alhambra",
+    slug: "rincones-secretos-granada",
+    excerpt: "Descubre los tesoros ocultos de esta ciudad andaluza repleta de historia y encanto.",
+    content: `
+      <p>Granada es mucho más que su famosa Alhambra. Esta ciudad andaluza esconde rincones mágicos que muchos visitantes nunca llegan a descubrir, pero que contienen la esencia auténtica de su historia y cultura.</p>
+
+      <h2>El Albaicín más profundo</h2>
+      <p>Más allá de los miradores turísticos como San Nicolás, el barrio del Albaicín oculta callejuelas estrechas donde la vida sigue el ritmo pausado de siglos pasados. Calles como Cuesta del Chapiz o la Plaza de Aliatar revelan casas con elementos nazaríes y pequeños comercios tradicionales donde apenas llegan los turistas.</p>
+
+      <h2>Baños Árabes El Bañuelo</h2>
+      <p>Mientras la mayoría visita los modernos baños árabes turísticos, El Bañuelo, construido en el siglo XI, representa uno de los baños mejor conservados de España. Milagrosamente salvado de la destrucción durante la Reconquista, ofrece una auténtica inmersión en la vida cotidiana de la Granada musulmana.</p>
+
+      <h2>Darb-e-Yasmin (Jardín de los Jazmines)</h2>
+      <p>Este pequeño jardín escondido tras muros discretos recupera la tradición andalusí de espacios verdes aromáticos. Con diseño inspirado en los patios nazaríes, solo los locales conocen su ubicación exacta, un remanso de paz entre los bulliciosos itinerarios turísticos.</p>
+
+      <h2>Consejos para descubrir la Granada oculta</h2>
+      <ul>
+        <li>Visita la ciudad durante temporada baja (noviembre-febrero)</li>
+        <li>Pierde el miedo a alejarte de las rutas marcadas</li>
+        <li>Reserva al menos un día completo para explorar sin destino fijo</li>
+        <li>Pregunta a los locales por sus lugares favoritos</li>
+        <li>Madruga para ver los barrios históricos sin multitudes</li>
+      </ul>
+
+      <p>Granada revela su verdadera magia a quienes tienen la paciencia de buscarla más allá de sus monumentos famosos. En cada esquina de sus barrios antiguos, siglos de historia esperan ser descubiertos por viajeros curiosos.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "April 15, 2023",
+    author: "Carmen Rodríguez",
+    destination: "España",
+    readingTime: "7 min read",
+    categories: ["destinos"],
+    subcategory: "España",
+    tags: ["andalucia", "cultura", "historia", "secreto"]
   },
   
   // Escapadas
@@ -391,6 +433,28 @@ export function getPostsByCategory(category: string): Post[] {
 export function getUniqueCategories(): string[] {
   const allCategories = posts.flatMap(post => post.categories || []);
   return [...new Set(allCategories)];
+}
+
+// Get posts by subcategory
+export function getPostsBySubcategory(subcategory: string): Post[] {
+  return posts.filter(post => 
+    post.subcategory?.toLowerCase() === subcategory.toLowerCase()
+  );
+}
+
+// Get unique subcategories
+export function getUniqueSubcategories(): string[] {
+  const subcategories = posts.map(post => post.subcategory).filter(Boolean) as string[];
+  return [...new Set(subcategories)];
+}
+
+// Get unique subcategories by category
+export function getUniqueSubcategoriesByCategory(category: string): string[] {
+  const categoryPosts = getPostsByCategory(category);
+  const subcategories = categoryPosts
+    .map(post => post.subcategory)
+    .filter(Boolean) as string[];
+  return [...new Set(subcategories)];
 }
 
 // Get posts by tag
