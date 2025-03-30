@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Search, X, Sun, Moon, ChevronDown } from "lucide-react";
 import SearchBar from "./SearchBar";
 import { useTheme } from "./ThemeProvider";
+import LanguageSelector from "./LanguageSelector";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -40,9 +41,13 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background bg-opacity-90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-serif font-bold text-foreground">
-          NomadGo
-        </Link>
+        {/* Logo and Language Selector */}
+        <div className="flex items-center gap-3">
+          <Link to="/" className="text-2xl font-serif font-bold text-foreground">
+            NomadGo
+          </Link>
+          <LanguageSelector />
+        </div>
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 md:hidden">

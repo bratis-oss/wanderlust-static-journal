@@ -11,9 +11,13 @@ export interface Post {
   destination: string;
   featured?: boolean;
   readingTime: string;
+  categories?: string[];
+  tags?: string[];
 }
 
+// Sample posts for each category
 export const posts: Post[] = [
+  // Destinos
   {
     id: "1",
     title: "Exploring the Hidden Beaches of Bali",
@@ -47,7 +51,9 @@ export const posts: Post[] = [
     author: "Maria Garcia",
     destination: "Bali",
     featured: true,
-    readingTime: "5 min read"
+    readingTime: "5 min read",
+    categories: ["destinos", "asia"],
+    tags: ["playas", "indonesia", "oculto"]
   },
   {
     id: "2",
@@ -85,130 +91,262 @@ export const posts: Post[] = [
     author: "James Wilson",
     destination: "Japan",
     featured: true,
-    readingTime: "6 min read"
+    readingTime: "6 min read",
+    categories: ["destinos", "asia"],
+    tags: ["templos", "cultura", "japon"]
   },
+  
+  // Escapadas
   {
     id: "3",
-    title: "A Food Tour Through the Streets of Marrakech",
-    slug: "food-tour-marrakech",
-    excerpt: "Taste your way through the vibrant flavors of Morocco's most famous city.",
+    title: "Weekend Getaway: Costa Brava's Hidden Coves",
+    slug: "costa-brava-coves",
+    excerpt: "Discover the perfect weekend escape along Spain's rugged northeastern coastline.",
     content: `
-      <p>Marrakech is a feast for all the senses, but perhaps most notably for taste. The ancient city's food scene is a delicious blend of Arabic, Andalusian, Berber, and Mediterranean influences that tell the story of Morocco's rich cultural history.</p>
+      <p>Just a short drive from Barcelona, the Costa Brava offers some of Spain's most spectacular coastal scenery. With its rugged cliffs, pine forests, and crystal-clear waters, it's perfect for a weekend escape from city life.</p>
 
-      <h2>Jemaa el-Fnaa Night Market</h2>
-      <p>As the sun sets, Marrakech's main square transforms into one of the world's most exciting open-air dining experiences. Dozens of food stalls serve everything from grilled meats to snail soup. Look for stalls popular with locals for the most authentic experience.</p>
+      <h2>Cala Tavallera</h2>
+      <p>This hidden cove near Cap de Creus is only accessible by boat or a challenging hour-long hike, ensuring you'll have plenty of space even in high season. The stunning turquoise waters are perfect for snorkeling, and the surrounding rocky landscape provides a dramatic backdrop.</p>
 
-      <h2>Tangia - The Bachelor's Dish</h2>
-      <p>This uniquely Marrakchi dish consists of meat slow-cooked with preserved lemon, garlic, olive oil, and spices in an earthenware pot. Traditionally, single men would prepare the pot in the morning and leave it with the hammam (bathhouse) attendant to cook in the ashes of the fire that heats the bath water.</p>
+      <h2>Cala S'Alguer</h2>
+      <p>This tiny fishing village between Palamós and Calella de Palafrugell features colorful fishermen's huts and wooden boats pulled up on the pebble beach. While not ideal for sunbathing, it offers incredible charm and authenticity rarely found on the Mediterranean coast.</p>
 
-      <h2>Tagine Variations</h2>
-      <p>No trip to Morocco is complete without sampling tagine, a slow-cooked stew named after the distinctive conical pot it's prepared in. In Marrakech, try the tagine kefta (meatballs with eggs), tagine djaj (chicken with preserved lemon and olives), or tagine mrouzia (lamb with honey and raisins).</p>
+      <h2>Weekend Itinerary</h2>
+      <p>Friday evening: Drive to your base in Begur or Cadaqués</p>
+      <p>Saturday: Explore hidden coves and enjoy seafood lunch in a coastal village</p>
+      <p>Sunday: Visit medieval towns like Pals or Peratallada before returning home</p>
 
-      <h2>Moroccan Pastries</h2>
-      <p>Influenced by both French and Middle Eastern traditions, Moroccan pastries are works of art. Visit a local patisserie to try favorites like kaab el ghzal ("gazelle horns" filled with almond paste), chebakia (sesame cookies soaked in honey), and briouat (crispy pastry with sweet or savory fillings).</p>
+      <h2>Where to Stay</h2>
+      <p>For the perfect weekend escape, book a small boutique hotel in Begur or Cadaqués. These charming towns offer excellent restaurants, scenic views, and easy access to the coastal paths.</p>
 
-      <h2>Mint Tea Ceremony</h2>
-      <p>More than just a beverage, mint tea is central to Moroccan hospitality. The ceremonial preparation involves pouring the tea from a height to create a frothy top, and it's traditionally served three times to guests (the saying goes: "The first glass is as gentle as life, the second is as strong as love, the third is as bitter as death").</p>
-
-      <h2>Food Tour Tips</h2>
+      <h2>What to Pack</h2>
       <ul>
-        <li>Consider taking a guided food tour on your first day to get oriented</li>
-        <li>Eat where locals eat for the most authentic experience</li>
-        <li>Always wash hands before meals, as many dishes are eaten with the right hand</li>
-        <li>Be adventurous—some of the best dishes may look unfamiliar</li>
-        <li>Look for restaurants with high turnover of ingredients for freshness</li>
+        <li>Hiking shoes for coastal paths</li>
+        <li>Snorkeling gear to explore underwater life</li>
+        <li>Waterproof bag for valuables</li>
+        <li>Sun protection</li>
+        <li>Camera for the spectacular views</li>
       </ul>
 
-      <p>The flavors of Marrakech will linger in your memory long after your trip ends, offering a taste of Morocco's rich cultural heritage with every bite.</p>
+      <p>A Costa Brava getaway offers the perfect blend of adventure, relaxation, and authentic Spanish coastal culture - all within a compact weekend trip.</p>
     `,
-    coverImage: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    coverImage: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
     date: "April 18, 2023",
-    author: "Sofia Ahmed",
-    destination: "Morocco",
-    readingTime: "7 min read"
+    author: "Elena Martínez",
+    destination: "Spain",
+    readingTime: "4 min read",
+    categories: ["escapadas"],
+    tags: ["fin de semana", "españa", "playas", "mediterraneo"]
   },
   {
     id: "4",
-    title: "Hiking the Inca Trail to Machu Picchu",
-    slug: "inca-trail-machu-picchu",
-    excerpt: "Follow in the footsteps of the ancient Incas on this legendary trek to one of the world's most magnificent sites.",
+    title: "Secret Mountain Retreat in the Pyrenees",
+    slug: "pyrenees-mountain-retreat",
+    excerpt: "Disconnect from the digital world in this hidden valley between France and Spain.",
     content: `
-      <p>The classic Inca Trail is a 26-mile (43-kilometer) trek that connects several important Incan archaeological sites, culminating at the legendary citadel of Machu Picchu. More than just a hike, it's a journey through history, diverse ecosystems, and breathtaking Andean landscapes.</p>
+      <p>The Pyrenees mountains, spanning the border between France and Spain, hold countless secret valleys and villages that seem frozen in time. For the perfect weekend escape, head to the Valle de Tena on the Spanish side, where traditional stone villages contrast with dramatic mountain peaks.</p>
 
-      <h2>Preparing for the Trek</h2>
-      <p>The Inca Trail requires good physical conditioning due to its high altitude (reaching 4,215 meters at Dead Woman's Pass) and steep sections. Most trekkers spend at least 2-3 days in Cusco before the hike to acclimatize to the altitude. The trail requires permits that must be booked months in advance as they're limited to 500 people per day (including guides and porters).</p>
+      <h2>Tramacastilla de Tena</h2>
+      <p>This tiny stone village with fewer than 100 residents offers authentic mountain life without the tourists. Stay in a renovated stone house and wake up to views of snow-capped mountains and the gentle sound of cowbells.</p>
 
-      <h2>Day 1: Kilometer 82 to Wayllabamba</h2>
-      <p>The trek begins at Kilometer 82, where you'll cross the Urubamba River. The first day is relatively gentle, passing through the village of Miskay and visiting the Incan ruins of Llactapata ("high town") before camping at Wayllabamba.</p>
+      <h2>Hiking Routes</h2>
+      <p>The valley offers hiking trails for all levels. For a moderate day hike, the path to Ibones de Anayet rewards with twin glacial lakes reflecting perfect mountain views. For a more challenging route, the ascent to Pico Anayet offers panoramic views across both Spanish and French Pyrenees.</p>
 
-      <h2>Day 2: The Climb to Dead Woman's Pass</h2>
-      <p>The most challenging day of the trek involves climbing to the highest point of the trail, Warmiwañusca or Dead Woman's Pass (4,215m). The ascent takes trekkers through changing ecological zones, from the high jungle (cloud forest) to alpine tundra. After crossing the pass, there's a steep descent to the campsite at Pacaymayo.</p>
+      <h2>Disconnecting</h2>
+      <p>The real luxury of this escape is the opportunity to disconnect. Mobile reception is limited in parts of the valley, and many accommodations embrace this digital detox approach, focusing instead on books, conversation, and nature.</p>
 
-      <h2>Day 3: The Cloud Forest and Incan Ruins</h2>
-      <p>Day three features several archaeological sites, including Runkurakay (a circular lookout post), Sayacmarca (an inaccessible site entered by a steep staircase), and Phuyupatamarca ("town above the clouds"), which offers stunning views of surrounding peaks and the Urubamba River valley below. The day ends at Wiñay Wayna, an impressive terraced site whose name means "forever young" in Quechua.</p>
-
-      <h2>Day 4: Sunrise at the Sun Gate</h2>
-      <p>The final day begins very early (often around 3:30 am) to reach Inti Punku (the Sun Gate) for sunrise. This is the moment trekkers have been waiting for—their first view of Machu Picchu, ideally bathed in the golden light of dawn. From here, it's a descent to explore the ancient citadel itself.</p>
-
-      <h2>Trekking Tips</h2>
+      <h2>Seasonal Considerations</h2>
       <ul>
-        <li>Book permits 6+ months in advance during high season (May-September)</li>
-        <li>Bring layers for temperatures that range from hot to freezing</li>
-        <li>Consider hiring a porter to carry the bulk of your gear</li>
-        <li>Pack biodegradable toiletries and practice Leave No Trace principles</li>
-        <li>Include a water purification system in your gear</li>
-        <li>Bring local currency for tipping guides and porters</li>
+        <li>Spring: Wildflowers carpet meadows, but snow may remain on higher trails</li>
+        <li>Summer: Perfect hiking weather and mountain festivals in villages</li>
+        <li>Fall: Spectacular foliage and fewer visitors</li>
+        <li>Winter: Cozy retreats with fireplaces after winter sports</li>
       </ul>
 
-      <p>The Inca Trail is more than just the destination of Machu Picchu—it's about experiencing the journey as the Incas did, through ancient stone paths, mountain passes, and cloud forests. For many trekkers, it's a life-changing adventure that connects them to both nature and history in profound ways.</p>
+      <p>Just a few hours from Madrid or Barcelona, this Pyrenean escape offers a complete reset in a single weekend. Return to city life refreshed, with mountains in your eyes and silence in your mind.</p>
     `,
-    coverImage: "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    coverImage: "https://images.unsplash.com/photo-1571983823232-07c313b6b4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
     date: "March 5, 2023",
-    author: "Carlos Mendoza",
-    destination: "Peru",
-    readingTime: "8 min read"
+    author: "Pablo Sánchez",
+    destination: "Spain",
+    readingTime: "5 min read",
+    categories: ["escapadas"],
+    tags: ["montaña", "desconexión", "naturaleza", "secreto"]
   },
+  
+  // Consejos de Viaje
   {
     id: "5",
-    title: "Island Hopping in the Greek Cyclades",
-    slug: "greek-cyclades-island-hopping",
-    excerpt: "Navigate the azure waters of the Aegean Sea to discover the unique character of Greece's most famous island group.",
+    title: "Pack Like a Pro: The One-Bag Travel System",
+    slug: "one-bag-travel-system",
+    excerpt: "Master the art of traveling light without sacrificing essentials.",
     content: `
-      <p>The Cyclades, with their iconic whitewashed buildings and blue-domed churches set against the deep blue Aegean, embody the classic Greek island fantasy. Yet each island in this archipelago has its own distinct personality, from cosmopolitan hotspots to tranquil escapes.</p>
+      <p>Traveling with just one bag, whether for a weekend or several weeks, transforms the entire travel experience. No checked baggage fees, no waiting at carousels, and incredible mobility. Here's how to make it work for you.</p>
 
-      <h2>Santorini: The Romantic Icon</h2>
-      <p>Famous for its dramatic caldera views and stunning sunsets, Santorini is the postcard image of Greek island beauty. Beyond the popular sunset spot of Oia, explore the ancient ruins of Akrotiri (a Bronze Age settlement preserved by volcanic ash), sample volcanic wines at local vineyards, and swim at the unique colored beaches—red beach, black beach, and white beach—created by the island's volcanic geology.</p>
+      <h2>Choose the Right Bag</h2>
+      <p>The foundation of one-bag travel is, naturally, the bag itself. Look for a 30-45L backpack that opens fully like a suitcase (clamshell opening). Water resistance, comfortable straps, and a design that looks appropriate in both outdoor and urban settings are key features.</p>
 
-      <h2>Mykonos: The Cosmopolitan Playground</h2>
-      <p>Known for its vibrant nightlife and beautiful beaches, Mykonos attracts celebrities and party-seekers from around the world. But the island offers more than just clubs and beach parties. Wander through the charming, maze-like streets of Mykonos Town (Chora), visit the iconic windmills, and take a day trip to the nearby island of Delos—birthplace of Apollo and Artemis and one of Greece's most important archaeological sites.</p>
+      <h2>Clothing Philosophy</h2>
+      <p>The secret to packing light is a capsule wardrobe where everything coordinates with everything else. Choose a simple color scheme (neutrals with 1-2 accent colors) and fabrics that resist wrinkles and odors. Merino wool is exceptional for this purpose.</p>
 
-      <h2>Naxos: The Natural Wonder</h2>
-      <p>The largest Cycladic island offers diverse landscapes, from the highest mountains in the Cyclades to fertile valleys and long, sandy beaches. Naxos is known for its excellent local produce, including potatoes, cheese, and kitron (a citrus liqueur). Don't miss the Portara (the massive marble doorway of an unfinished temple to Apollo) at sunset, the traditional mountain villages of the interior, and the beaches of the western coast, which are perfect for windsurfing and kitesurfing.</p>
-
-      <h2>Paros: The All-Rounder</h2>
-      <p>Offering a balance of beautiful beaches, charming villages, good nightlife, and water sports, Paros has something for everyone. Visit the Byzantine "church of 100 doors" (Panagia Ekatontapiliani) in the port town of Parikia, explore the charming narrow streets of Naoussa fishing village, and discover the inland village of Lefkes with its traditional Cycladic architecture and magnificent views.</p>
-
-      <h2>Milos: The Geological Marvel</h2>
-      <p>Less visited than its famous neighbors but equally beautiful, Milos is known for its extraordinary volcanic landscape that has created over 70 beaches, each with unique formations and colors. The island is where the Venus de Milo statue was discovered and is home to ancient catacombs. Don't miss the moonscape of Sarakiniko, the colorful fishing village of Klima with boat garages built into the rock, and the extraordinary Papafragas beach nestled between towering white cliffs.</p>
-
-      <h2>Island Hopping Tips</h2>
+      <h2>The 5-4-3-2-1 Rule</h2>
+      <p>For a week-long trip (adjustable for longer journeys):</p>
       <ul>
-        <li>The high season (June-August) offers the most frequent ferry connections but also bigger crowds and higher prices</li>
-        <li>May and September offer a great balance of good weather, open facilities, and fewer crowds</li>
-        <li>Book accommodations well in advance for July and August</li>
-        <li>Check ferry schedules carefully as they can change with weather conditions</li>
-        <li>Consider staying a minimum of 3 nights on each island to truly experience it</li>
-        <li>For more authentic experiences, explore the smaller, less visited islands like Folegandros, Sifnos, or Amorgos</li>
+        <li>5 pairs of socks and underwear</li>
+        <li>4 tops (mix of t-shirts and long-sleeves)</li>
+        <li>3 bottoms (pants/shorts/skirt)</li>
+        <li>2 pairs of shoes (wear the bulkier pair)</li>
+        <li>1 jacket/sweater (wear it on travel days)</li>
       </ul>
 
-      <p>The Cyclades create a perfect setting for a Greek island adventure, with each island adding its own chapter to your story. Whether you're seeking romance, adventure, relaxation, history, or gastronomy, there's an island waiting to welcome you.</p>
+      <h2>Toiletries Minimalism</h2>
+      <p>Decant products into small containers, look for solid alternatives (shampoo bars, solid perfume), and be realistic about what you'll actually use. Most accommodations provide soap and shampoo.</p>
+
+      <h2>Tech Essentials</h2>
+      <p>A single universal adapter, multi-port charger, and thoughtful selection of devices keeps your tech footprint minimal. Consider whether you really need both a laptop and tablet.</p>
+
+      <h2>Packing Cubes: The Secret Weapon</h2>
+      <p>Compression packing cubes not only organize your belongings but also reduce their volume, creating space you didn't know you had.</p>
+
+      <p>One-bag travel isn't about deprivation—it's about thoughtful curation of what truly enhances your journey, freeing you from the literal and figurative baggage that weighs down so many travelers.</p>
     `,
-    coverImage: "https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    coverImage: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
     date: "February 19, 2023",
-    author: "Elena Papadopoulos",
-    destination: "Greece",
-    featured: true,
-    readingTime: "9 min read"
+    author: "Ana Jiménez",
+    destination: "Global",
+    readingTime: "7 min read",
+    categories: ["consejos"],
+    tags: ["equipaje", "organización", "minimalismo"]
+  },
+  {
+    id: "6",
+    title: "Digital Security for Travelers: Protect Your Data on the Road",
+    slug: "digital-security-travelers",
+    excerpt: "Essential strategies to keep your digital life secure while traveling.",
+    content: `
+      <p>Traveling exposes your digital information to new risks, from unsecured Wi-Fi networks to increased risk of device theft. With some preparation, you can enjoy your journey without compromising your digital security.</p>
+
+      <h2>Before You Leave</h2>
+      <p>Back up all your devices to a secure cloud service and an external hard drive that remains at home. Update all software and operating systems to ensure you have the latest security patches. Enable two-factor authentication on all important accounts, especially email, banking, and social media.</p>
+
+      <h2>Password Management</h2>
+      <p>Use a reputable password manager to generate and store strong, unique passwords for every account. This prevents a security breach on one site from affecting your other accounts. Consider creating a separate email address just for travel bookings to keep your main inbox secure.</p>
+
+      <h2>Virtual Private Networks (VPNs)</h2>
+      <p>A VPN encrypts your internet connection, protecting your data even on unsecured public Wi-Fi networks. Subscribe to a paid VPN service before your trip and install it on all your devices. Free VPNs often collect and sell your data, defeating the purpose of security.</p>
+
+      <h2>Physical Device Security</h2>
+      <ul>
+        <li>Never leave devices unattended in public places</li>
+        <li>Use hotel safes for devices when you don't need them</li>
+        <li>Keep devices with you during transit</li>
+        <li>Consider a privacy screen for your laptop or phone</li>
+        <li>Enable full-disk encryption on all devices</li>
+      </ul>
+
+      <h2>Public Computer Safety</h2>
+      <p>Avoid using public computers for sensitive accounts if possible. If you must use one, use your VPN, browse in incognito mode, and be sure to log out of all accounts completely. Never allow browsers to save your passwords on public devices.</p>
+
+      <h2>Social Media Awareness</h2>
+      <p>Be cautious about sharing real-time location information on social media, as this announces that your home is empty. Consider posting about your adventures after returning home instead of during your trip.</p>
+
+      <p>Digital security might seem complex, but these habits quickly become second nature and provide invaluable peace of mind as you explore the world.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "January 15, 2023",
+    author: "Carlos Mendoza",
+    destination: "Global",
+    readingTime: "6 min read",
+    categories: ["consejos"],
+    tags: ["seguridad", "tecnología", "preparación"]
+  },
+  
+  // Vida Nómada
+  {
+    id: "7",
+    title: "Finding Community as a Digital Nomad",
+    slug: "digital-nomad-community",
+    excerpt: "Strategies for building meaningful connections while living a location-independent lifestyle.",
+    content: `
+      <p>One of the greatest challenges of nomadic living isn't finding WiFi or affordable accommodation—it's building and maintaining a sense of community when you're constantly on the move. Here's how successful digital nomads create belonging wherever they go.</p>
+
+      <h2>Coliving Spaces</h2>
+      <p>Purpose-built coliving spaces for remote workers have exploded in popularity. Beyond providing accommodation and workspaces, these communities organize social events, skill-sharing workshops, and group excursions. Living with like-minded individuals for 1-3 months creates deeper connections than typical hostel stays.</p>
+
+      <h2>Digital Nomad Hubs</h2>
+      <p>Certain cities have developed reputations as digital nomad hotspots—Canggu in Bali, Chiang Mai in Thailand, Medellín in Colombia, Lisbon in Portugal. Choosing these destinations, especially during shoulder seasons, almost guarantees you'll meet others living a similar lifestyle.</p>
+
+      <h2>Online-to-Offline Communities</h2>
+      <p>Platforms like Nomadlist, Facebook groups, and Meetup allow you to connect with other nomads before arriving in a new location. Many lasting friendships begin with a simple "Anyone in Taipei want to grab coffee this week?" post.</p>
+
+      <h2>Consistent Rhythms</h2>
+      <p>Establish rituals that give structure to your social life. Perhaps it's attending language exchange events every Tuesday, weekend hiking groups, or regular coworking days. Consistency creates opportunities for relationships to develop naturally.</p>
+
+      <h2>Depth Over Breadth</h2>
+      <ul>
+        <li>Slow travel (1-3 months per location) allows deeper connections than rapid movement</li>
+        <li>Return to favorite places annually to reconnect with the community there</li>
+        <li>Focus on quality interactions rather than meeting as many people as possible</li>
+        <li>Be intentional about maintaining long-distance friendships</li>
+      </ul>
+
+      <h2>Local Integration</h2>
+      <p>While connecting with other nomads is valuable, making local friends provides deeper cultural immersion. Take language classes, join community sports, or volunteer with local organizations to meet residents who can share their authentic perspective on a place.</p>
+
+      <p>The nomadic lifestyle offers unprecedented freedom, but it requires intentionality to build the human connections we all need. With these strategies, you can create a global community that makes the world feel like home.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "December 10, 2022",
+    author: "Laura Fernández",
+    destination: "Global",
+    readingTime: "8 min read",
+    categories: ["nomada"],
+    tags: ["comunidad", "relaciones", "social", "remoto"]
+  },
+  {
+    id: "8",
+    title: "The Tax Realities of Location Independence",
+    slug: "tax-realities-nomads",
+    excerpt: "Understanding your tax obligations as a digital nomad or location-independent professional.",
+    content: `
+      <p>The freedom of a location-independent lifestyle comes with complex tax considerations that many new digital nomads overlook. While tax laws vary by country, understanding these fundamental concepts will help you stay compliant while optimizing your tax situation.</p>
+
+      <h2>Tax Residency vs. Citizenship</h2>
+      <p>Most countries determine tax obligations based on residency, not citizenship (with notable exceptions like the United States). Each nation has different criteria for determining tax residency, often based on the number of days spent in the country and/or maintaining a permanent home there.</p>
+
+      <h2>Common Misconceptions</h2>
+      <p>Many nomads mistakenly believe that constantly moving means they don't owe taxes anywhere. In reality, most people are tax residents somewhere, and failing to declare income can lead to significant penalties. Another misconception is that offshore income is automatically tax-free—this varies widely depending on residency status and tax treaties.</p>
+
+      <h2>Strategic Planning</h2>
+      <p>Legal tax optimization might involve establishing residency in a country with:</p>
+      <ul>
+        <li>Territorial tax systems that only tax income earned within their borders</li>
+        <li>Tax exemptions for foreign-sourced income</li>
+        <li>Favorable tax treaties with countries where you earn income</li>
+        <li>Special programs for digital nomads or remote workers</li>
+      </ul>
+
+      <h2>Record Keeping</h2>
+      <p>Maintain meticulous records of:</p>
+      <ul>
+        <li>Days spent in each country (entry/exit stamps, boarding passes)</li>
+        <li>Rental agreements and utility bills</li>
+        <li>Work contracts and invoices</li>
+        <li>All sources of income</li>
+      </ul>
+
+      <h2>Professional Guidance</h2>
+      <p>Consult with tax professionals who specialize in expat and nomad taxation. General accountants often lack knowledge of international tax considerations. While this advice represents an additional expense, it typically saves money in the long run by preventing costly mistakes.</p>
+
+      <p>The goal isn't to avoid all taxation—sustainable nomadic living means contributing fairly to the societies where you live and work. Rather, it's about understanding your obligations and making informed decisions about where and how you structure your location-independent lifestyle.</p>
+    `,
+    coverImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+    date: "November 22, 2022",
+    author: "Miguel López",
+    destination: "Global",
+    readingTime: "9 min read",
+    categories: ["nomada"],
+    tags: ["impuestos", "finanzas", "legal", "residencia"]
   }
 ];
 
@@ -240,4 +378,30 @@ export function getPostsByDestination(destination: string): Post[] {
 export function getUniqueDestinations(): string[] {
   const destinations = posts.map(post => post.destination);
   return [...new Set(destinations)];
+}
+
+// Get posts by category
+export function getPostsByCategory(category: string): Post[] {
+  return posts.filter(post => 
+    post.categories?.includes(category.toLowerCase())
+  );
+}
+
+// Get unique categories
+export function getUniqueCategories(): string[] {
+  const allCategories = posts.flatMap(post => post.categories || []);
+  return [...new Set(allCategories)];
+}
+
+// Get posts by tag
+export function getPostsByTag(tag: string): Post[] {
+  return posts.filter(post => 
+    post.tags?.includes(tag.toLowerCase())
+  );
+}
+
+// Get unique tags
+export function getUniqueTags(): string[] {
+  const allTags = posts.flatMap(post => post.tags || []);
+  return [...new Set(allTags)];
 }
