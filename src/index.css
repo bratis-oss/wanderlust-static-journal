@@ -40,28 +40,28 @@
 
   .dark {
     --background: 20 15% 10%;
-    --foreground: 20 10% 90%;
+    --foreground: 20 10% 95%; /* Texto principal más claro en modo oscuro */
 
     --card: 20 15% 12%;
-    --card-foreground: 20 10% 90%;
+    --card-foreground: 20 10% 95%; /* Texto en tarjetas más claro */
 
     --popover: 20 15% 12%;
-    --popover-foreground: 20 10% 90%;
+    --popover-foreground: 20 10% 95%;
 
     --primary: 25 95% 53%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 25 30% 20%;
-    --secondary-foreground: 20 10% 90%;
+    --secondary-foreground: 20 10% 95%; /* Texto en fondo secundario más claro */
 
     --muted: 25 20% 20%;
-    --muted-foreground: 20 10% 70%; /* Increased brightness for better readability */
+    --muted-foreground: 20 10% 80%; /* Texto muted más claro para mejor visibilidad */
 
     --accent: 25 40% 25%;
-    --accent-foreground: 20 10% 90%;
+    --accent-foreground: 20 10% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 20 10% 90%;
+    --destructive-foreground: 20 10% 95%;
 
     --border: 20 15% 25%;
     --input: 20 15% 25%;
@@ -105,12 +105,15 @@
            prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic;
   }
 
-  /* Dark mode specific adjustments for blog content */
+  /* Dark mode specific adjustments for blog content - mejorada visibilidad */
   .dark .blog-content {
-    @apply prose-p:text-gray-200 /* Ensure paragraph text is readable in dark mode */
-           prose-headings:text-gray-100 /* Ensure headings are visible in dark mode */
-           prose-a:text-primary /* Keep links visually distinct */
-           prose-strong:text-gray-100 /* Make bold text stand out */
-           prose-em:text-gray-200; /* Make italic text readable */
+    @apply prose-p:text-gray-100 /* Texto de párrafos más claro en modo oscuro */
+           prose-headings:text-gray-50 /* Títulos más visibles en modo oscuro */
+           prose-a:text-primary /* Enlaces deben destacar */
+           prose-strong:text-gray-50 /* Texto en negrita más visible */
+           prose-em:text-gray-100 /* Texto en cursiva más legible */
+           prose-li:text-gray-100 /* Elementos de lista más visibles */
+           prose-code:text-gray-100 /* Código más visible */
+           prose-figcaption:text-gray-200; /* Leyendas de imágenes más visibles */
   }
 }
